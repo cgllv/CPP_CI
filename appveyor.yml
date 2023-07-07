@@ -10,7 +10,9 @@ init:
   # Set build version to git commit-hash
   - ps: Update-AppveyorBuild -Version "$($env:APPVEYOR_REPO_BRANCH) - $($env:APPVEYOR_REPO_COMMIT)"
 
-# install:
+install:
+  - git clone -b v1.9.6 https://github.com/catchorg/Catch2.git ./third_party/Catch
+  - git clone -b v0.13.0 https://github.com/gabime/spdlog.git ./third_party/spdlog
 #   - git submodule update --init --recursive
 
 # Win32 and x64 are CMake-compatible solution platform names.
